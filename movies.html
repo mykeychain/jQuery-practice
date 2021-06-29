@@ -1,0 +1,55 @@
+	<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Movies App</title>
+</head>
+
+<body>
+	
+</body>
+
+<script src="https://unpkg.com/jquery"></script>
+<script>
+	// create a form element
+	let movieInputEl = '<input type = "text" id="movie-input">'
+	let ratingInputEl = '<input type = "text" id="rating-input">'
+	let $form = $('<form>')
+	let $submitBtn = $('<input id="submit" type="submit">');
+	// create form on DOM
+	$('body')
+		.append($form
+			.append(movieInputEl)
+			.append(ratingInputEl)
+			.append($submitBtn)
+		);
+
+	
+	// TODO: placeholders
+	$('body').append($('<div class="gallery">'));
+	$('#submit').on('click',(evt)=>{
+		// on click of submit button, capture values of 
+		// inputs and append them to dom w/ removebutton
+		evt.preventDefault();
+		// get form value
+		let movieInputVal = $('#movie-input').val();
+		let ratingInputVal = $('#rating-input').val();
+		// create block object for rating
+		let newEntry = $('<div>')
+			.html(`<h1>${movieInputVal}</h1> 
+			<h2>${ratingInputVal}</h2>`);
+		
+		$('.gallery').append(newEntry)
+
+	})
+
+	$('.gallery').on('click', 'div',(evt)=>{
+		
+		$(evt.target).parent().remove()
+	})
+
+
+</script>
+</html>

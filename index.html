@@ -90,7 +90,8 @@
   let newParagraph = $("<p>I'm sorry for making you look at that list</p>");
   $("aside").append(newParagraph);
 
-  $(".form-control").change(function(){
+  // $(".form-control").change(function()
+  $(".form-control").on('change, keyup',()=>{
     let rgb = [];
     for (let i = 0; i < $(".form-control").length; i++) {
       rgb.push(+$(".form-control").eq(i).val());
