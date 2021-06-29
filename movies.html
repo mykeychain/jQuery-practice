@@ -38,16 +38,28 @@
 		let ratingInputVal = $('#rating-input').val();
 		// create block object for rating
 		let newEntry = $('<div>')
-			.html(`<h1>${movieInputVal}</h1> 
-			<h2>${ratingInputVal}</h2>`);
-		
+		newEntry.attr("class","card")
+		newEntry.html(
+			`<h1>${movieInputVal}</h1> 
+			<h2>${ratingInputVal}</h2>`
+		);
+		newEntry.css(
+			{'border':'1px solid black',
+			'border-radius':'26px',
+			'padding':'25px',
+			'display':'inline-box',
+			'margin':'25px'}
+			
+		);
+
+	
 		$('.gallery').append(newEntry)
 
 	})
 
-	$('.gallery').on('click', 'div',(evt)=>{
-		
-		$(evt.target).parent().remove()
+	$('.gallery').on('click','.card',(evt)=>{
+		console.log(evt.target)
+		$(evt.target).closest('div').remove()
 	})
 
 
